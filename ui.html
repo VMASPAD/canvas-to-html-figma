@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script>
+function downloadHTML(filename, content) {
+  // Crear un elemento 'a' y ocultarlo
+  const element = document.createElement('a');
+  const file = new Blob([content], {type: 'text/html'});
+  
+  // Crear la URL del archivo
+  element.href = URL.createObjectURL(file);
+  
+  // Definir el nombre del archivo a descargar
+  element.download = filename;
+  
+  // Simular un click en el elemento para descargar el archivo
+  document.body.appendChild(element);
+  element.click();
+  
+  // Limpiar y remover el elemento
+  document.body.removeChild(element);
+}
+document.getElementById('create').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'start' } }, '*')
+}
+window.onmessage = (event) => {
+  if (event.data.pluginMessage.type === 'nodes') {
+    const nodes = event.data.pluginMessage.nodes;
+    
+    
+  downloadHTML('index.html', `
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+  body{
+    margin:0;
+  }  
+  </style>
+  <body>
+    ${nodes}
+  </body>
+</html>
+
+  `)
+  const setResult = document.getElementById('node-container');
+  setResult.innerHTML = nodes
+    }
+
+  }
+
+</script>
+</head>
+<body>
+
+<div class="flex">
+  <h2>Get Elements</h2>
+<button id="create" class="btn btn-primary">View</button>
+</div>
+<h1 class="text-3xl font-bold underline">
+  Hello world!
+</h1>
+
+  
+</body>
+</html>

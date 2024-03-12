@@ -1,0 +1,18 @@
+{
+  "name": "Get html",
+  "id": "1346649634437958749",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html",
+  "networkAccess": {
+      "allowedDomains": ["https://cdn.tailwindcss.com","https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"],
+      "reasoning": "MyPlugin queries httpbin.org/get for example responses.",
+      "devAllowedDomains": ["https://cdn.tailwindcss.com","https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"]
+  },
+  "documentAccess": "dynamic-page"
+}
