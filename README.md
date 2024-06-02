@@ -1,40 +1,38 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+# Canvas to HTML Figma Plugin
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+This project is a Figma plugin that allows users to convert their Figma designs into HTML code. It's designed to help designers and developers streamline their workflow by automatically generating HTML code from Figma frames, text, rectangles, and vectors.
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+## Features
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+- **Frame Extraction**: Converts Figma frames into HTML sections with background colors and dimensions.
+- **Text Support**: Extracts text elements from Figma and converts them into HTML paragraphs (`<p>` tags) with font styles, sizes, and colors.
+- **Rectangle Conversion**: Transforms Figma rectangles into `<div>` elements with background colors, dimensions, and border radii.
+- **SVG Support**: Converts Figma vector graphics into inline SVG elements for high-quality, scalable graphics in the HTML output.
+- **Shadow and Opacity**: Handles shadows and opacity for elements to ensure visual fidelity in the HTML output.
 
-  https://nodejs.org/en/download/
+## Getting Started
 
-Next, install TypeScript using the command:
+To use this plugin, follow these steps:
 
-  npm install -g typescript
+1. **Install Node.js and NPM**: Download Node.js from [https://nodejs.org/en/download/](https://nodejs.org/en/download/), which includes NPM (Node Package Manager) for installing dependencies.
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+2. **Install TypeScript**: Run `npm install -g typescript` to install TypeScript globally. TypeScript is used for writing the plugin code with type safety.
 
-  npm install --save-dev @figma/plugin-typings
+3. **Install Figma Plugin Typings**: Navigate to your plugin directory and run `npm install --save-dev @figma/plugin-typings` to get the latest type definitions for the Figma Plugin API.
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+4. **Compile TypeScript**: Open your plugin directory in Visual Studio Code, run the "Terminal > Run Build Task..." menu item, and select "npm: watch". This will compile your TypeScript code (`code.ts`) into JavaScript (`code.js`), which can be run by the browser.
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+## Usage
 
-For more information, visit https://www.typescriptlang.org/
+1. Open your Figma file and select the frames or elements you want to convert to HTML.
+2. Run the plugin from the Figma menu.
+3. The plugin UI will open, displaying options for converting your selected elements into HTML.
+4. Click the "View" button to generate and download the HTML code.
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+## Contributing
 
-We recommend writing TypeScript code using Visual Studio code:
+Contributions are welcome! If you have ideas for improvements or have found a bug, please open an issue or submit a pull request.
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "npm: watch". You will have to do this again every time
-    you reopen Visual Studio Code.
+## License
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+This project is licensed under the MIT License - see the LICENSE file for details.
